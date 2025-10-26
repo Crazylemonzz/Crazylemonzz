@@ -102,6 +102,17 @@
             padding: 25px;
             border-radius: 8px;
             border-left: 4px solid #3498db;
+            text-align: center;
+        }
+
+        .note-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .note-category h4 {
@@ -112,6 +123,7 @@
 
         .note-list {
             list-style: none;
+            text-align: left;
         }
 
         .note-list li {
@@ -126,22 +138,41 @@
 
         .fragrance-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             margin-top: 20px;
         }
 
         .fragrance-item {
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
+            padding: 0;
+            background: white;
+            border-radius: 12px;
             border: 1px solid #e9ecef;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .fragrance-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .fragrance-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .fragrance-content {
+            padding: 20px;
         }
 
         .fragrance-name {
             font-weight: 500;
             color: #2c3e50;
             margin-bottom: 8px;
+            font-size: 1.1rem;
         }
 
         .fragrance-house {
@@ -159,6 +190,22 @@
         .arabic { border-left-color: #e74c3c; }
         .designer { border-left-color: #3498db; }
         .niche { border-left-color: #9b59b6; }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
 
         footer {
             text-align: center;
@@ -191,6 +238,15 @@
                 width: 200px;
                 text-align: center;
             }
+            
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .fragrance-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -213,6 +269,7 @@
         
         <div class="notes-grid">
             <div class="note-category">
+                <img src="https://images.unsplash.com/photo-1615634260167-046c5c336a71?w=200&h=200&fit=crop&crop=center" alt="Citrus fruits" class="note-image">
                 <h4>Top Notes</h4>
                 <p>The initial impression, lasting 5-15 minutes</p>
                 <ul class="note-list">
@@ -224,6 +281,7 @@
             </div>
             
             <div class="note-category">
+                <img src="https://images.unsplash.com/photo-1595941069915-4ebc5197c14a?w=200&h=200&fit=crop&crop=center" alt="Rose flowers" class="note-image">
                 <h4>Heart Notes</h4>
                 <p>The core character, lasting 20-60 minutes</p>
                 <ul class="note-list">
@@ -235,6 +293,7 @@
             </div>
             
             <div class="note-category">
+                <img src="https://images.unsplash.com/photo-1595425970375-3a53b48d17ad?w=200&h=200&fit=crop&crop=center" alt="Wood and resin" class="note-image">
                 <h4>Base Notes</h4>
                 <p>The lasting impression, 2+ hours</p>
                 <ul class="note-list">
@@ -248,94 +307,139 @@
     </section>
 
     <section id="arabic-fragrances" class="section">
-        <h2>Arabic Fragrances</h2>
-        <p>Known for their rich, long-lasting scents with prominent oud, amber, and musk notes.</p>
+        <div class="category-header">
+            <img src="https://images.unsplash.com/photo-1584438784894-089f45499df3?w=100&h=100&fit=crop&crop=center" alt="Arabic pattern" class="category-icon">
+            <h2>Arabic Fragrances</h2>
+        </div>
+        <p>Known for their rich, long-lasting scents with prominent oud, amber, and musk notes from Middle Eastern perfumery traditions.</p>
         
         <div class="fragrance-list">
             <div class="fragrance-item arabic">
-                <div class="fragrance-name">Amouage Interlude</div>
-                <div class="fragrance-house">Amouage</div>
-                <div class="fragrance-notes">Oud, Amber, Oregano, Bergamot</div>
+                <img src="https://images.unsplash.com/photo-1547887746-79e5f132c16b?w=400&h=300&fit=crop&crop=center" alt="Amouage Interlude" class="fragrance-image">
+                <div class="fragrance-content">
+                    <div class="fragrance-name">Amouage Interlude</div>
+                    <div class="fragrance-house">Amouage</div>
+                    <div class="fragrance-notes">Oud, Amber, Oregano, Bergamot</div>
+                </div>
             </div>
             
             <div class="fragrance-item arabic">
-                <div class="fragrance-name">Rasasi La Yuqawam</div>
-                <div class="fragrance-house">Rasasi</div>
-                <div class="fragrance-notes">Leather, Saffron, Raspberry, Oud</div>
+                <img src="https://images.unsplash.com/photo-1590736968-fc8b8b965c31?w=400&h=300&fit=crop&crop=center" alt="Rasasi La Yuqawam" class="fragrance-image">
+                <div class="fragrance-content">
+                    <div class="fragrance-name">Rasasi La Yuqawam</div>
+                    <div class="fragrance-house">Rasasi</div>
+                    <div class="fragrance-notes">Leather, Saffron, Raspberry, Oud</div>
+                </div>
             </div>
             
             <div class="fragrance-item arabic">
-                <div class="fragrance-name">Al Haramain Amber Oud</div>
-                <div class="fragrance-house">Al Haramain</div>
-                <div class="fragrance-notes">Amber, Oud, Rose, Saffron</div>
+                <img src="https://images.unsplash.com/photo-1595425970375-3a53b48d17ad?w=400&h=300&fit=crop&crop=center" alt="Al Haramain Amber Oud" class="fragrance-image">
+                <div class="fragrance-content">
+                    <div class="fragrance-name">Al Haramain Amber Oud</div>
+                    <div class="fragrance-house">Al Haramain</div>
+                    <div class="fragrance-notes">Amber, Oud, Rose, Saffron</div>
+                </div>
             </div>
             
             <div class="fragrance-item arabic">
-                <div class="fragrance-name">Lattafa Oud Mood</div>
-                <div class="fragrance-house">Lattafa</div>
-                <div class="fragrance-notes">Oud, Rose, Patchouli, Amber</div>
+                <img src="https://images.unsplash.com/photo-1547887746-79e5f132c16b?w=400&h=300&fit=crop&crop=center" alt="Lattafa Oud Mood" class="fragrance-image">
+                <div class="fragrance-content">
+                    <div class="fragrance-name">Lattafa Oud Mood</div>
+                    <div class="fragrance-house">Lattafa</div>
+                    <div class="fragrance-notes">Oud, Rose, Patchouli, Amber</div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="designer-fragrances" class="section">
-        <h2>Designer Fragrances</h2>
-        <p>Mainstream fragrances from fashion houses, often well-balanced and mass-appealing.</p>
+        <div class="category-header">
+            <img src="https://images.unsplash.com/photo-1563170351-be82bc888aa4?w=100&h=100&fit=crop&crop=center" alt="Designer fashion" class="category-icon">
+            <h2>Designer Fragrances</h2>
+        </div>
+        <p>Mainstream fragrances from fashion houses, often well-balanced and mass-appealing with sophisticated packaging.</p>
         
         <div class="fragrance-list">
             <div class="fragrance-item designer">
-                <div class="fragrance-name">Bleu de Chanel</div>
-                <div class="fragrance-house">Chanel</div>
-                <div class="fragrance-notes">Grapefruit, Ginger, Sandalwood, Incense</div>
+                <img src="https://images.unsplash.com/photo-1547887746-79e5f132c16b?w=400&h=300&fit=crop&crop=center" alt="Bleu de Chanel" class="fragrance-image">
+                <div class="fragrance-content">
+                    <div class="fragrance-name">Bleu de Chanel</div>
+                    <div class="fragrance-house">Chanel</div>
+                    <div class="fragrance-notes">Grapefruit, Ginger, Sandalwood, Incense</div>
+                </div>
             </div>
             
             <div class="fragrance-item designer">
-                <div class="fragrance-name">Sauvage</div>
-                <div class="fragrance-house">Dior</div>
-                <div class="fragrance-notes">Calabrian Bergamot, Amberwood, Lavender</div>
+                <img src="https://images.unsplash.com/photo-1590736968-fc8b8b965c31?w=400&h=300&fit=crop&crop=center" alt="Sauvage" class="fragrance-image">
+                <div class="fragrance-content">
+                    <div class="fragrance-name">Sauvage</div>
+                    <div class="fragrance-house">Dior</div>
+                    <div class="fragrance-notes">Calabrian Bergamot, Amberwood, Lavender</div>
+                </div>
             </div>
             
             <div class="fragrance-item designer">
-                <div class="fragrance-name">Acqua di Gio</div>
-                <div class="fragrance-house">Giorgio Armani</div>
-                <div class="fragrance-notes">Marine Notes, Neroli, Jasmine, Amber</div>
+                <img src="https://images.unsplash.com/photo-1547887746-79e5f132c16b?w=400&h=300&fit=crop&crop=center" alt="Acqua di Gio" class="fragrance-image">
+                <div class="fragrance-content">
+                    <div class="fragrance-name">Acqua di Gio</div>
+                    <div class="fragrance-house">Giorgio Armani</div>
+                    <div class="fragrance-notes">Marine Notes, Neroli, Jasmine, Amber</div>
+                </div>
             </div>
             
             <div class="fragrance-item designer">
-                <div class="fragrance-name">Terre d'Hermès</div>
-                <div class="fragrance-house">Hermès</div>
-                <div class="fragrance-notes">Orange, Grapefruit, Flint, Vetiver</div>
+                <img src="https://images.unsplash.com/photo-1590736968-fc8b8b965c31?w=400&h=300&fit=crop&crop=center" alt="Terre d'Hermès" class="fragrance-image">
+                <div class="fragrance-content">
+                    <div class="fragrance-name">Terre d'Hermès</div>
+                    <div class="fragrance-house">Hermès</div>
+                    <div class="fragrance-notes">Orange, Grapefruit, Flint, Vetiver</div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="niche-fragrances" class="section">
-        <h2>Niche Fragrances</h2>
-        <p>Artisanal creations focusing on unique compositions and high-quality ingredients.</p>
+        <div class="category-header">
+            <img src="https://images.unsplash.com/photo-1584438784894-089f45499df3?w=100&h=100&fit=crop&crop=center" alt="Artisanal craft" class="category-icon">
+            <h2>Niche Fragrances</h2>
+        </div>
+        <p>Artisanal creations focusing on unique compositions, high-quality ingredients, and innovative scent profiles.</p>
         
         <div class="fragrance-list">
             <div class="fragrance-item niche">
-                <div class="fragrance-name">Aventus</div>
-                <div class="fragrance-house">Creed</div>
-                <div class="fragrance-notes">Pineapple, Birch, Musk, Patchouli</div>
+                <img src="https://images.unsplash.com/photo-1547887746-79e5f132c16b?w=400&h=300&fit=crop&crop=center" alt="Aventus" class="fragrance-image">
+                <div class="fragrance-content">
+                    <div class="fragrance-name">Aventus</div>
+                    <div class="fragrance-house">Creed</div>
+                    <div class="fragrance-notes">Pineapple, Birch, Musk, Patchouli</div>
+                </div>
             </div>
             
             <div class="fragrance-item niche">
-                <div class="fragrance-name">Grand Soir</div>
-                <div class="fragrance-house">Maison Francis Kurkdjian</div>
-                <div class="fragrance-notes">Amber, Vanilla, Benzoin, Tonka Bean</div>
+                <img src="https://images.unsplash.com/photo-1590736968-fc8b8b965c31?w=400&h=300&fit=crop&crop=center" alt="Grand Soir" class="fragrance-image">
+                <div class="fragrance-content">
+                    <div class="fragrance-name">Grand Soir</div>
+                    <div class="fragrance-house">Maison Francis Kurkdjian</div>
+                    <div class="fragrance-notes">Amber, Vanilla, Benzoin, Tonka Bean</div>
+                </div>
             </div>
             
             <div class="fragrance-item niche">
-                <div class="fragrance-name">Santal 33</div>
-                <div class="fragrance-house">Le Labo</div>
-                <div class="fragrance-notes">Sandalwood, Leather, Cardamom, Violet</div>
+                <img src="https://images.unsplash.com/photo-1547887746-79e5f132c16b?w=400&h=300&fit=crop&crop=center" alt="Santal 33" class="fragrance-image">
+                <div class="fragrance-content">
+                    <div class="fragrance-name">Santal 33</div>
+                    <div class="fragrance-house">Le Labo</div>
+                    <div class="fragrance-notes">Sandalwood, Leather, Cardamom, Violet</div>
+                </div>
             </div>
             
             <div class="fragrance-item niche">
-                <div class="fragrance-name">Black Afgano</div>
-                <div class="fragrance-house">Nasomatto</div>
-                <div class="fragrance-notes">Cannabis, Oud, Woods, Resins</div>
+                <img src="https://images.unsplash.com/photo-1590736968-fc8b8b965c31?w=400&h=300&fit=crop&crop=center" alt="Black Afgano" class="fragrance-image">
+                <div class="fragrance-content">
+                    <div class="fragrance-name">Black Afgano</div>
+                    <div class="fragrance-house">Nasomatto</div>
+                    <div class="fragrance-notes">Cannabis, Oud, Woods, Resins</div>
+                </div>
             </div>
         </div>
     </section>
